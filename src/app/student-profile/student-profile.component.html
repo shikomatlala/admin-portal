@@ -1,0 +1,64 @@
+<form (ngSubmit)="onSubmit(studentProfileForm)" #studentProfileForm="ngForm" >
+<mat-card class="card" >
+  <mat-card-header>
+    <mat-card-subtitle class="card-subtitle">Personal Details</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+      <section ngModelGroup="studentProfileData" class="content-section">
+        <mat-form-field class="form-field-custom-class">
+          <mat-label>Student Number</mat-label>
+          <input class="read-only-input" readonly="true" matInput placeholder="Student Number"  [ngModel]="student.studentNumber" name="studentNumber">
+        </mat-form-field>
+
+        <mat-form-field class="form-field-custom-class">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name" required [ngModel]="student.firstName"  name="firstName">
+        </mat-form-field>
+
+        <mat-form-field class="form-field-custom-class">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" name="lastName" required [ngModel]="student.lastName">
+        </mat-form-field>
+
+        <mat-form-field class="form-field-custom-class">
+          <mat-label>ID Number</mat-label>
+          <input class="read-only-input" readonly="true" matInput  placeholder="ID Number" name="idNumber" [ngModel]="student.idNumber">
+        </mat-form-field>
+
+        <mat-form-field class="form-field-custom-class">
+          <mat-label>Gender</mat-label>
+          <input class="read-only-input"  readonly="true" matInput  placeholder="Gender"  [ngModel]="student.gender.toLocaleLowerCase()" name="gender">
+        </mat-form-field>
+
+        @if(student.passportNumber)
+        {
+          <mat-form-field class="form-field-custom-class">
+            <mat-label>Passport Number</mat-label>
+            <input class="read-only-input" readonly="true" matInput  placeholder="Passport Number" name="passportNumber" [ngModel]="student.passportNumber">
+          </mat-form-field>
+  
+        }
+        <mat-form-field class="form-field-custom-class">
+          <mat-label>Contact Number</mat-label>
+          <input matInput placeholder="Contact Number" required name="contactNumber" [ngModel]="student.contactNumber">
+        </mat-form-field>
+
+        <mat-form-field class="form-field-custom-class">
+          <mat-label>Email Address</mat-label>
+          <input class="read-only-input" readonly="true" readonly matInput  placeholder="Email Address" name="emailAddress" [ngModel]="student.emailAddress">
+        </mat-form-field>
+      </section>
+      <mat-card-actions>
+        <section>
+          <button type="button" mat-flat-button (click)="onCancel()">Cancel</button>
+          <button 
+            [disabled]="!studentProfileForm.dirty || !studentProfileForm.valid"
+            type="submit" 
+            mat-flat-button 
+            color="primary">Save</button>
+        </section>
+      </mat-card-actions>
+
+  </mat-card-content>
+</mat-card>
+</form>

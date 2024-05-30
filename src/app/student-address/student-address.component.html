@@ -1,0 +1,74 @@
+<form (ngSubmit)="onSubmit(studentAddressForm)" #studentAddressForm="ngForm" >
+    <mat-card class="card" >
+      <mat-divider></mat-divider>
+      <mat-card-header>
+        <mat-card-subtitle class="card-subtitle">Personal Details</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <section ngModelGroup="studentAddressData" class="content-section">
+            <mat-form-field class="form-field-custom-class display-table">
+              <mat-label>Formatted Address</mat-label>
+              <input class="read-only-input" readonly="true" required  matInput  placeholder="City" [ngModel]="studentAddress.formattedAddress" name="formattedAddress">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class">
+              <mat-label>Street Number</mat-label>
+              <input  matInput placeholder="Street Number"  [ngModel]="studentAddress.streetNumber" name="streetNumber">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class ">
+              <mat-label>Line 1</mat-label>
+              <input required matInput placeholder="Line 1" [ngModel]="studentAddress.line1"  name="line1">
+            </mat-form-field>
+            <br>
+            <mat-form-field class="form-field-custom-class ">
+              <mat-label>Longitude</mat-label>
+              <input class="read-only-input" readonly="true" matInput placeholder="Longitude"  [ngModel]="studentAddress.longitude" name="longitude">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class">
+              <mat-label>Latitude</mat-label>
+              <input class="read-only-input" readonly="true" required matInput placeholder="Latitude" [ngModel]="studentAddress.latitude"  name="latitude">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class  display-table">
+              <mat-label>Line 2</mat-label>
+              <input matInput placeholder="Line 2" name="line2" [ngModel]="studentAddress.line2">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class ">
+              <mat-label>Suburb</mat-label>
+              <input required  matInput  placeholder="suburb" name="suburb" [ngModel]="studentAddress.suburb">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class ">
+              <mat-label>City</mat-label>
+              <input  required  matInput  placeholder="City" [ngModel]="studentAddress.city" name="city">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class display-table">
+                <mat-label>Postal Code</mat-label>
+                <input required  matInput  placeholder="Postal Code" name="postalCode" [ngModel]="studentAddress.postalCode">
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class ">
+              <mat-label>State</mat-label>
+              <mat-select name="state" [ngModel]="studentAddress.state" required>
+                <mat-option>--</mat-option>
+                @for(state of states; track state) {
+                  <mat-option [value]="state.code">{{state.name}}</mat-option>
+                }
+              </mat-select>
+              <mat-hint></mat-hint>
+            </mat-form-field>
+            <mat-form-field class="form-field-custom-class">
+              <mat-label>Country</mat-label>
+              <input  readonly="true" readonly matInput  placeholder="Country" name="country" [ngModel]="studentAddress.country">
+            </mat-form-field>
+          </section>
+          <mat-card-actions>
+            <section>
+              <button type="button" mat-flat-button (click)="onCancel()">Cancel</button>
+              <button 
+                [disabled]="!studentAddressForm.dirty || !studentAddressForm.valid"
+                type="submit" 
+                mat-flat-button 
+                color="primary">Save</button>
+            </section>
+          </mat-card-actions>
+      </mat-card-content>
+    </mat-card>
+</form>
+    

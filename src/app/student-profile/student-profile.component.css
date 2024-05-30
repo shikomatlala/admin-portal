@@ -1,0 +1,30 @@
+.card {
+    border: none !important;
+    box-shadow: "none"
+  }
+  
+.read-only-input{
+    color: rgb(138, 138, 138) !important;
+    user-select: none !important;
+}
+
+
+.form-field-custom-class{
+    display: table;
+    table-layout: fixed; /*Optional*/
+    border-spacing: 5px; /*Optional*/
+}
+
+.content-section{
+    display: table;
+    table-layout: fixed; /*Optional*/
+    border-spacing: 10px; /*Optional*/
+}
+
+.card-title{
+    padding-bottom: 20px;
+}
+
+.card-subtitle{
+    padding-bottom: 20px;
+}
